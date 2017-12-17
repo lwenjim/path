@@ -1,0 +1,9 @@
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\bin\Debug\path.exe
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\bin\Debug\path.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\path.Properties.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\path.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\path.exe
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\path.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\path.PATH.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\path\path\obj\Debug\path.HOST.resources
