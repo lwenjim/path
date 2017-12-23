@@ -1,0 +1,5 @@
+D:\workdata\path\path\path\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\workdata\path\path\path\obj\x86\Debug\path.HOST.resources
+D:\workdata\path\path\path\obj\x86\Debug\path.PATH.resources
+D:\workdata\path\path\path\obj\x86\Debug\path.Properties.Resources.resources
+D:\workdata\path\path\path\obj\x86\Debug\path.csproj.GenerateResource.Cache

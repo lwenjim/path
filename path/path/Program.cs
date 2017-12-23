@@ -15,7 +15,7 @@ namespace path
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PATH());
+            Application.Run(new HOST());
         }
     }
 }
