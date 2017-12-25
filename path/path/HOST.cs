@@ -27,6 +27,7 @@ namespace path
             bandComb();
             tabControl1.SelectedIndex = 0;
             reflushTableEnvirment();
+            
         }
 
         private void reflushTableEnvirment()
@@ -125,7 +126,7 @@ namespace path
                     MessageBox.Show("添加失败！");
                     return;
                 }
-                if (comboBox2.SelectedIndex != -1 && comboBox1.SelectedItem.ToString().Trim() == comboBox2.SelectedItem.ToString().Trim())
+                if (comboBox2.SelectedIndex != -1 && comboBox1.SelectedIndex != -1 && comboBox1.SelectedItem.ToString().Trim() == comboBox2.SelectedItem.ToString().Trim())
                 {
                     reflushTableHostDomain(type);
                 }
@@ -302,6 +303,48 @@ namespace path
             textBox3.Text = "";
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == -1) return;
+            DialogResult dr = MessageBox.Show("点击【是】加载本地host文件，【否】打开文件对话框", "请选择导入的文件路径！",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+
+            if (DialogResult.Yes == dr) 
+            {
+                int j = importHostDomain(configPath);
+                MessageBox.Show(String.Format("导入成功{0}个！", j.ToString()));
+            }
+            else if (DialogResult.No == dr)
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                DialogResult drr = ofd.ShowDialog();
+                if (drr != DialogResult.OK) return;
+                int j = importHostDomain(ofd.FileName);
+                MessageBox.Show(String.Format("导入成功{0}个！", j.ToString()));
+            }
+        }
+
+        private int importHostDomain(string filename)
+        {
+            int j = 0;
+            int type = HostTypeDao.getIdByStr(comboBox1.SelectedItem.ToString());
+            string[] lines = File.ReadAllLines(filename, Encoding.Default);
+            foreach (string line in lines)
+            {
+                string[] fields = line.Trim().Split(new char[] { ' ' }, 2, StringSplitOptions.RemoveEmptyEntries);
+                if (!HostDomainDao.checkIp(fields[0]) || !HostDomainDao.checkDomain(fields[1])) continue;
+                try
+                {
+                    int i = hddao.add(new HostDomain() { Ip = fields[0].Trim(), Domain = fields[1].Trim(), Type = type });
+                    if (i > 0) j++;
+                }
+                catch (Exception ex) { string s = ex.Message; }
+            }
+            reflushTableHostDomain(type);
+            return j;
+        }
+
     }
     class HostDomain
     {
@@ -353,6 +396,13 @@ namespace path
     }
     class HostDomainDao : ModelDao
     {
+        public int add(HostDomain hd)
+        {
+            string sql = "insert into tbl_host_domain(id,ip,domain,type) values(null,'{0}','{1}',{2})";
+            sql = String.Format(sql, hd.Ip, hd.Domain, hd.Type.ToString());
+            int i = this.ExecuteNonQuery(sql);
+            return i;
+        }
         public static bool checkIp(string ip)
         {
             return Regex.IsMatch(ip, @"^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$");

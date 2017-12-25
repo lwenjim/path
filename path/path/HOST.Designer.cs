@@ -43,6 +43,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,7 +67,6 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caozuo = new System.Windows.Forms.DataGridViewLinkColumn();
             this.caozuo2 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -192,6 +193,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.comboBox1);
@@ -202,6 +204,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "主页";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(342, 14);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "导入HOST";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button3
             // 
@@ -327,6 +339,17 @@
             this.tabPage3.Text = "添加环境";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(419, 253);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "返回";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -440,17 +463,6 @@
             this.caozuo2.UseColumnTextForLinkValue = true;
             this.caozuo2.Width = 54;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(419, 253);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "返回";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // HOST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -510,5 +522,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
